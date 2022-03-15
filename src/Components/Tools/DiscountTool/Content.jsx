@@ -13,9 +13,9 @@ export const Content = () => {
 
     const validation = () => {
         if (itemCost <= 0)
-            throw "item cost must be bigger than 0"
+            throw new Error("item cost must be bigger than 0")
         if (discount <= 0 || discount >= 100)
-            throw "discount price must be bigger than 0% and less than 100%"
+            throw new Error("discount price must be bigger than 0% and less than 100%")
     }
 
     const calcDiscount = () => {
@@ -26,7 +26,7 @@ export const Content = () => {
             setItemCost(result)
             setDiscount('')
         } catch (error) {
-            alert(error)
+            alert(error.message)
         }
     }
 
