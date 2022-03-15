@@ -70,8 +70,6 @@ export const Page = () => {
                         aria-label="full width tabs example"
                     >
                         <Tab label="Discount Calculator" {...a11yProps(0)} />
-                        <Tab label="second tool" {...a11yProps(1)} />
-                        <Tab label="third tool" {...a11yProps(2)} />
                     </Tabs>
                 </AppBar>
                 <SwipeableViews
@@ -81,12 +79,6 @@ export const Page = () => {
                 >
                     <TabPanel value={value} index={0} dir={theme.direction}>
                         <Discount />
-                    </TabPanel>
-                    <TabPanel value={value} index={1} dir={theme.direction}>
-                        second tool
-                    </TabPanel>
-                    <TabPanel value={value} index={2} dir={theme.direction}>
-                        third tool
                     </TabPanel>
                 </SwipeableViews>
             </Box>
