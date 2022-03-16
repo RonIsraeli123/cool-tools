@@ -8,7 +8,7 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
-import { Discount } from '../Tools/index'
+import { Discount, Invest } from '../Tools/index'
 
 import './Page.css'
 
@@ -70,6 +70,7 @@ export const Page = () => {
                         aria-label="full width tabs example"
                     >
                         <Tab label="Discount Calculator" {...a11yProps(0)} />
+                        <Tab label="Invest Calculator" {...a11yProps(1)} />
                     </Tabs>
                 </AppBar>
                 <SwipeableViews
@@ -79,6 +80,9 @@ export const Page = () => {
                 >
                     <TabPanel value={value} index={0} dir={theme.direction}>
                         <Discount />
+                    </TabPanel>
+                    <TabPanel value={value} index={1} dir={theme.direction}>
+                        <Invest />
                     </TabPanel>
                 </SwipeableViews>
             </Box>
