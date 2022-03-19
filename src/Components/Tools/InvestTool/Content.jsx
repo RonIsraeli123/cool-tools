@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
+import { CalcStockChange } from '../../../Algorithm/Invest/ClaclEarn'
 import './Content.css'
 
 
@@ -15,16 +16,14 @@ export const Content = () => {
     const validation = () => {
         if (moneyAmount <= 0)
             throw new Error("Money amount must be bigger than 0")
-        if (stockPurchasePrice < 0 && salePrice < 0)
+        if (stockPurchasePrice <= 0 || salePrice <= 0)
             throw new Error("Stock purchase price and sale price must be bigger than 0")
     }
-
-    // TODO: algo for calc invest earn
 
     const calcEarn = () => {
         try {
             validation()
-            const result = ((Math.abs(stockPurchasePrice - salePrice) / 100) * moneyAmount) + moneyAmount
+            const result = CalcStockChange(stockPurchasePrice, salePrice, moneyAmount)
             setResult(result)
             SetMoneyAmount(result)
             setStockPurchasePrice('')
