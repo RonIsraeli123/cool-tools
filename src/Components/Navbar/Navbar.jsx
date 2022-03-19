@@ -10,7 +10,7 @@ import Box from '@mui/material/Box';
 
 import { Discount, Invest } from '../Tools/index'
 
-import './Page.css'
+import './Navbar.css'
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -45,7 +45,7 @@ function a11yProps(index) {
     };
 }
 
-export const Page = () => {
+export const Navbar = () => {
     const theme = useTheme();
     const [value, setValue] = React.useState(0);
 

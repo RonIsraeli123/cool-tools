@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
-import { CalcStockChange } from '../../../Algorithm/Invest/ClaclEarn'
+import { CalcStockChange } from '../../../../Algorithm/Invest/ClaclEarn'
 import './Content.css'
 
 
