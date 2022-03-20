@@ -1,3 +1,5 @@
 export const CalcStockChange = (startValue, saleValue, sumMoney) => {
-  return (parseInt(saleValue) / parseInt(startValue)) * parseInt(sumMoney);
+  return (
+    (parseFloat(saleValue) / parseFloat(startValue)) * parseFloat(sumMoney)
+  );
 };

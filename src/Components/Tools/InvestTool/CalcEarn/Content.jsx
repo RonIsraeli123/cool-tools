@@ -40,9 +40,9 @@ export const Content = () => {
             <TextField onChange={(e) => { setSalePrice(e.target.value) }} label="Sale Price" color="secondary" type="number" value={salePrice} focused />
             <Button onClick={calcEarn} variant="contained">Calculate</Button>
             {result ?
-                <dev>
-                    total money after sale - {result}
-                </dev> :
+                <h4>
+                    total money after sale (without taxes) - {result}
+                </h4> :
                 ''
             }
 

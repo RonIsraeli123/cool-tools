@@ -36,9 +36,9 @@ export const Content = () => {
             <TextField onChange={(e) => { setDiscount(e.target.value) }} label="discount" color="secondary" type="number" value={discount} focused />
             <Button onClick={calcDiscount} variant="contained">Calculate</Button>
             {result ?
-                <dev>
+                <h4>
                     total cost after discount - {result}
-                </dev> :
+                </h4> :
                 ''
             }
 
