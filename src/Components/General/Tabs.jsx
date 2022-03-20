@@ -3,14 +3,12 @@ import PropTypes from 'prop-types';
 import SwipeableViews from 'react-swipeable-views';
 import { useTheme } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
+import TabsMaterial from '@mui/material/Tabs';
+import TabMaterial from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
-import { Discount, Invest } from '../Tools/index'
-
-import './Navbar.css'
+import './General.css'
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -45,7 +43,7 @@ function a11yProps(index) {
     };
 }
 
-export const Navbar = () => {
+export const Tabs = (props) => {
     const theme = useTheme();
     const [value, setValue] = React.useState(0);
 
@@ -61,7 +59,7 @@ export const Navbar = () => {
         <div className='center'>
             <Box sx={{ bgcolor: 'background.paper', width: 500 }}>
                 <AppBar position="static">
-                    <Tabs
+                    <TabsMaterial
                         value={value}
                         onChange={handleChange}
                         indicatorColor="secondary"
@@ -69,21 +67,22 @@ export const Navbar = () => {
                         variant="fullWidth"
                         aria-label="full width tabs example"
                     >
-                        <Tab label="Discount Calculator" {...a11yProps(0)} />
-                        <Tab label="Invest Calculator" {...a11yProps(1)} />
-                    </Tabs>
+                        {props.tabsTitle.map((title, index) => {
+                            return <TabMaterial label={title} {...a11yProps(index)} />
+                        })}
+                    </TabsMaterial>
                 </AppBar>
                 <SwipeableViews
                     axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
                     index={value}
                     onChangeIndex={handleChangeIndex}
                 >
-                    <TabPanel value={value} index={0} dir={theme.direction}>
-                        <Discount />
-                    </TabPanel>
-                    <TabPanel value={value} index={1} dir={theme.direction}>
-                        <Invest />
-                    </TabPanel>
+                    {props.items.map((item, indexNum) => {
+                        return (
+                            <TabPanel value={value} index={indexNum} dir={theme.direction}>
+                                {item}
+                            </TabPanel>)
+                    })}
                 </SwipeableViews>
             </Box>
         </div>
