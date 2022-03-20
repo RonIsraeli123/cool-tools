@@ -10,7 +10,6 @@ export const Invest = () => {
     return (
         <div className='centerRow'>
             <Card image={IMAGE} header={HEADER} text={TEXT} itemContent={<ContentInvest />} />
-            <Card image={IMAGE} header={HEADER} text={TEXT} itemContent={<ContentInvest />} />
         </div>
     )
 }
