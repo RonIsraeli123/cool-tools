@@ -14,3 +14,16 @@
 .margin {
   margin: 1em;
 }
+
+.chipList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.4em;
+}
+
+.flexRow {
+  display: flex;
+  flex-direction: row;
+}

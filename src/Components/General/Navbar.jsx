@@ -6,16 +6,16 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 
+import { useNavigate } from 'react-router-dom';
 import { LOGO_TEXT, PAGES_TEXT } from '../../consts/general/Navbar'
 
-export const Navbar = (props) => {
-    const changePath = (to) => {
-        const path = props.homePath + `${to}`;
-        window.location = path;
-    }
+import './General.css'
+
+export const Navbar = () => {
+    const navigate = useNavigate();
 
     return (
-        <AppBar position="static">
+        <AppBar position="static" color='secondary'>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <Typography
@@ -26,11 +26,11 @@ export const Navbar = (props) => {
                     >
                         {LOGO_TEXT}
                     </Typography>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                    <Box className='flexRow'>
                         {PAGES_TEXT.map((page_text, index) => (
                             <Button
-                                onClick={() => { changePath(page_text) }}
                                 key={index}
+                                onClick={() => navigate(page_text)}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
                                 {page_text}

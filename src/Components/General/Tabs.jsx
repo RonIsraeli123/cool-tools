@@ -68,7 +68,7 @@ export const Tabs = (props) => {
                         aria-label="full width tabs example"
                     >
                         {props.tabsTitle.map((title, index) => {
-                            return <TabMaterial label={title} {...a11yProps(index)} />
+                            return <TabMaterial key={index} label={title} {...a11yProps(index)} />
                         })}
                     </TabsMaterial>
                 </AppBar>

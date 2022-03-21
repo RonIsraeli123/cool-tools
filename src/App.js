@@ -1,31 +1,26 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  // useNavigate,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import { Tabs, Navbar } from './Components/General';
 import { INVEST_TABS_TITLE, DISCOUNT_TABS_TITLE } from './consts/App';
-import { Discount, Invest } from './Components/Tools';
+import { Discount, Invest, AverageStockPrice } from './Components/Tools';
 import { Home } from './Components/MainCommponents';
 
 import './App.css';
 
 function App() {
-  // TODO: change to navgetor from react lib
-  const currentURL = 'http://localhost:3000/';
-
   return (
     <div className='App'>
-      <Navbar homePath={currentURL} />
       <Router>
+        <Navbar />
         <Routes>
           <Route exact path='/' element={<Home />} />
           <Route
             path='/invest'
             element={
-              <Tabs tabsTitle={INVEST_TABS_TITLE} items={[<Invest />]} />
+              <Tabs
+                tabsTitle={INVEST_TABS_TITLE}
+                items={[<Invest />, <AverageStockPrice />]}
+              />
             }
           />
           <Route
