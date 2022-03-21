@@ -13,7 +13,7 @@ import { Home } from './Components/MainCommponents';
 import './App.css';
 
 function App() {
-  // Todo: change to navgetor from react lib
+  // TODO: change to navgetor from react lib
   const currentURL = 'http://localhost:3000/';
 
   return (
