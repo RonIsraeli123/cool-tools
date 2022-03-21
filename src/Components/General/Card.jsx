@@ -23,9 +23,13 @@ export const Card = (props) => {
                     <Typography className='center' variant="body2" color="text.secondary">
                         {props.text}
                     </Typography>
-                    <div className='margin'>
-                        {props.itemContent}
-                    </div>
+                    {props.itemContent ?
+                        <div className='margin'>
+                            {props.itemContent}
+                        </div> :
+                        ''
+                    }
+
                 </CardContent>
             </CardMaterial >
         </div>
