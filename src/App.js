@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import { Tabs, Navbar } from './Components/General';
@@ -7,7 +9,7 @@ import { Home } from './Components/MainCommponents';
 
 import './App.css';
 
-function App() {
+const App = () => {
   return (
     <div className='App'>
       <Router>
@@ -33,6 +35,6 @@ function App() {
       </Router>
     </div>
   );
-}
+};
 
 export default App;
