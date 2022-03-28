@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Card } from '../../../General/index'
 import { Content as ContentInvest } from './Content'
-import { IMAGE, HEADER, TEXT } from '../../../../consts/tools/InvestEarn'
+import { IMAGE, HEADER, TEXT } from '../../../../consts/tools/Invest/InvestEarn'
 
 import './Invest.css'
 

@@ -1,4 +1,4 @@
-import investImage from '../../images/AverageStockPrice.jpg';
+import investImage from '../../../images/AverageStockPrice.jpg';
 
 export const HEADER = 'Average Stock Price';
 

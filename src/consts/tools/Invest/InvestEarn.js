@@ -1,4 +1,4 @@
-import investImage from '../../images/invest.jpg';
+import investImage from '../../../images/invest.jpg';
 
 export const HEADER = 'Invest Earning';
 
