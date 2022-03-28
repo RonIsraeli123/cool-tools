@@ -9,6 +9,7 @@ import {
   DiscountPercent,
   Invest,
   AverageStockPrice,
+  Game,
 } from './Components/Tools';
 import { Home } from './Components/MainCommponents';
 
@@ -39,6 +40,7 @@ const App = () => {
               />
             }
           />
+          <Route path='/Game' element={<Game />} />
         </Routes>
       </Router>
     </div>
