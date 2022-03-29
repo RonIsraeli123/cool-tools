@@ -1,21 +1,35 @@
 import { BOARD_LENGTH, WINNING_MARK_COUNT } from '../config';
+import { GameStatus } from '../const/GameStatus';
 
 export const play = (currentBoard, xIndex, yIndex, mark) => {
   playValidation(currentBoard, xIndex, yIndex, mark);
   currentBoard[xIndex][yIndex] = mark;
-  checkGameStatus(currentBoard);
+  checkGameStatus(currentBoard, mark);
 };
 
 const playValidation = (currentBoard, xIndex, yIndex, mark) => {
   if (currentBoard[xIndex][yIndex]) {
     throw new Error(`those[${xIndex}, ${yIndex}] coordinates are taken`);
   }
+  if (0 > xIndex > BOARD_LENGTH || 0 > yIndex > BOARD_LENGTH) {
+    throw new Error(`those[${xIndex}, ${yIndex}] coordinates are invalid`);
+  }
 };
 
-const checkGameStatus = (currentBoard) => {
-  checkSlants(currentBoard);
-  checkRows(currentBoard);
-  checkColumns(currentBoard);
+const checkGameStatus = (currentBoard, mark) => {
+  if (
+    checkSlants(currentBoard) ||
+    checkRows(currentBoard) ||
+    checkColumns(currentBoard)
+  ) {
+    return GameStatus.WIN;
+  }
+
+  if (checkGameEnd(currentBoard)) {
+    return GameStatus.DRAW;
+  }
+
+  return GameStatus.CONTINUE;
 };
 
 const checkSlants = (currentBoard) => {
@@ -37,11 +51,12 @@ const checkSlants = (currentBoard) => {
   }
 
   if (WINNING_MARK_COUNT == counterFirstSlant) {
-    return assignmentWin(firstInRow);
+    return true;
   }
   if (WINNING_MARK_COUNT == counterSecondSlant) {
-    return assignmentWin(firstInRow);
+    return true;
   }
+  return false;
 };
 
 const checkRows = (currentBoard) => {
@@ -53,9 +68,10 @@ const checkRows = (currentBoard) => {
       if (firstInRow == currentBoard[rowIndex][columnIndex]) counterInLine++;
     }
     if (WINNING_MARK_COUNT == counterInLine) {
-      return assignmentWin(firstInRow);
+      return true;
     }
   }
+  return false;
 };
 
 const checkColumns = (currentBoard) => {
@@ -67,14 +83,19 @@ const checkColumns = (currentBoard) => {
       if (firstInColumn == currentBoard[rowIndex][columnIndex]) counterInLine++;
     }
     if (WINNING_MARK_COUNT == counterInLine) {
-      return assignmentWin(firstInColumn);
+      return true;
     }
   }
+  return false;
 };
 
-const assignmentWin = (mark) => {
-  return {
-    status: 'Win',
-    mark: mark,
-  };
+const checkGameEnd = (currentBoard) => {
+  for (let rows = 0; rows < array.length; rows++) {
+    for (let column = 0; column < array.length; column++) {
+      if (currentBoard[rows][column] == null) {
+        return false;
+      }
+      return true;
+    }
+  }
 };
