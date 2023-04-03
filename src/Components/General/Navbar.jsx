@@ -13,6 +13,12 @@ import './General.css'
 
 export const Navbar = () => {
     const navigate = useNavigate();
+    const linkTo = (linkToText) => {
+        if (linkToText === 'home') {
+            navigate('/')
+        }
+        else { navigate(linkToText) }
+    }
 
     return (
         <AppBar position="static" color='secondary'>
@@ -30,7 +36,7 @@ export const Navbar = () => {
                         {PAGES_TEXT.map((page_text, index) => (
                             <Button
                                 key={index}
-                                onClick={() => navigate(page_text)}
+                                onClick={() => linkTo(page_text)}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
                                 {page_text}
